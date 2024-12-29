@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIU12a9e91u_f9jz0kjgHUVzDAu_KYjn0H0bJns51tGMEwJdYGBogRqngPBD7_1Vie9iw&usqp=CAU">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zando-Online Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<header >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+    <div class="container">
+      <a class="navbar-brand me-5" href="#"><img width="140px" src="https://zandokh.com/image/catalog/avethemes/zando-logo-small.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" id="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="shop">Shop</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#New">New Products</a></li>
+              <li><a class="dropdown-item" href="#Promotion">Promotion Products</a></li>
+              <li><a class="dropdown-item" href="#Popular">Popular Products</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">News</a>
+          </li>
+          <li class="nav-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">FEEDBACK</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="row">
+            <div class="col-12 col-xl-6 col-lg-6">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" name="" id="name" class="form-control">
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" name="" id="email" class="form-control">
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="text" name="" id="phone" class="form-control">
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6">
+              <label for="add" class="form-label">Address</label>
+              <input type="text" name="" id="add" class="form-control">
+            </div>
+            <div class="col-12 col-xl-12 col-lg-12">
+              <label for="dis" class="form-label">Address</label>
+              <textarea name="" id="dis" class="form-control"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+      <button type="button" class="btn btn-primary"><i class="bi bi-send mx-2"></i>Send</button>
+    </div>
+    </div>
+  </div>
+</div>
+<section>
+
+</section>
+<footer class="container-fluid mt-5 p-5">
+  <div class="footer container">
+    <div class="row">
+      <div class="col-12 col-xl-3">
+        <div class="app">
+          <h5 class="text-start">ZANDO APP</h5>
+          <img width="100px" src="https://zandokh.com/image/catalog/logo/qr_code_app.png" alt="">
+        </div>
+      </div>
+      <div class="col-12 col-xl-3">
+        <div class="link">
+          <h5 class="text-start">FOLLOW US</h5>
+          <ul>
+            <li><a href=""><i class="bi bi-facebook me-1"></i> FaceBook</a></li>
+            <li><a href=""><i class="bi bi-instagram me-1"></i> Instagram</a></li>
+            <li><a href=""><i class="bi bi-tiktok me-1"></i>Tik Tok</a></li>
+            <li><a href=""><i class="bi bi-youtube me-1"></i> YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-xl-3">
+        <div class="link">
+          <h5>CUSTOMER SERVICES</h5>
+          <ul>
+            <li><a href=""><i class="bi bi-question-circle me-1"></i>Online exchange policy</a></li>
+            <li><a href=""><i class="bi bi-shield-shaded me-1"></i>Privacy Policy</a></li>
+            <li><a href=""><i class="bi bi-whatsapp me-1"></i>FAQs & guides</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-xl-3">
+        <div class="accept">
+          <h5>WE ACCEPT</h5>
+          <img width="190px" src="https://zandokh.com/image/catalog/logo/web-footer/We-accept-payment%E2%80%93for-web-footer-1.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> 
+</body>
+</html>
+<script type="module">
+import {products} from './data.js'
+$(document).ready(()=>{
+  function getPage(page){
+    $.ajax({
+      url:page,
+      cache:false,
+      success:function(respone){
+        const res=`${respone}`;
+        $('section').html(res);
+      }
+
+    });
+  }
+  getPage('homePage.html');
+  $('#home').click(()=>{
+    getPage('homePage.html')
+  })
+  $('#shop').click(()=>{
+    getPage('shop.html')
+  })
+  $(document).on('click','.card',function(){
+    const productID=$(this).data('id');
+    var detial=''
+    products.forEach(e=>{
+    if(e.id==productID){
+      detial+=`
+      <div class="row mb-5 mt-5">
+        <div class="col-6 p-0">
+          <div class="w-100 d-flex justify-content-center">
+            <img class="w-75" src="${e.image}" alt="">
+          </div>
+        </div>
+        <div class="col-6 p-0">
+          <div class="detail w-100 p-4">
+            <h1 class="text-dark mb-3">${e.title}</h1>
+            <div class="price">
+              <ul>
+                <li class="fs-4 mb-3">PRICE</li>
+                <ol>
+                  <del class="text-danger fs-5">${e.regular_price}$ (US)</del>
+                  <p class="text-success fs-5 mt-3">${e.sale_price}$ (US)</p>
+                </ol>
+              </ul>
+            </div>
+            <div class="category">
+              <ul>
+                <li class="fs-4 mb-3">CATEGORY</li>
+                <ol>
+                  <p class="text-secondary fs-5 mt-3">${e.category}</p>
+                </ol>
+              </ul>
+            </div>
+            <div class="color">
+              <ul>
+                <li class="fs-4 mb-3">COLOR</li>
+                <ol>
+                  <p class="fs-6 text-secondary">${e.color}</p>
+                </ol>
+              </ul>
+            </div>
+            <div class="size">
+              <ul>
+                <li class="fs-4 mb-3">SIZE</li>
+                <ol>
+                  <p class="fs-6 text-secondary">${e.size}</p>
+                </ol>
+              </ul>
+            </div>
+            <div class="buy mb-5">
+              <ul>
+                <li class="fs-4 mb-3">BUY</li>
+              </ul>
+              <div class="d-flex align-items-center gap-2">
+                <input type="number" value="1" class="txtBoxBuy form-control w-25 text-center">
+                <button class="text-light btn btn-primary">Add To Cart</button>
+              </div>         
+            </div>
+            <div class="description">
+              <ul>
+                <li class="fs-4 mb-3">DESCRIPTON</li>
+                <ol>
+                  <p class="fs-6 text-secondary">${e.description}</p>
+                </ol>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
+      // console.log(e.id==productID);
+      }      
+    })
+    $('section').html(`${detial}`)
+  })
+       
+})
+
+</script>

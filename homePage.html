@@ -1,0 +1,204 @@
+<div id="carouselExampleControls" class="carousel slide container mt-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://scontent.fpnh2-3.fna.fbcdn.net/v/t39.30808-6/470091522_896975692605733_8764840148621994848_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeGhUpAp5iZjvtCGETdCPvaGu5BsydNhpRu7kGzJ02GlG3MUY9Pmcs3d6Oac2zfEr5G53N6jRHMUJjSvCzrZl87S&_nc_ohc=9dSq8Y0bTjUQ7kNvgGxhTW5&_nc_zt=23&_nc_ht=scontent.fpnh2-3.fna&_nc_gid=AuwgCAohgANvchCLS-GKuNk&oh=00_AYD40yYksDFT_lk7_3cOqxs1G3FGIUz9bWKwDhoB0i_Htg&oe=67759EF2" class="d-block w-100 " alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://scontent.fpnh2-1.fna.fbcdn.net/v/t39.30808-6/469204084_891670966469539_1176041400743887863_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeFdp9JBDY_UmT6dv7QKtyn0-ARzmKfm7xz4BHOYp-bvHNHt7-ql9pqH8zriUbj9gEu4_3zJJeB5LSdeTdiWI7IU&_nc_ohc=G-qWmtJjp8cQ7kNvgEyglNa&_nc_zt=23&_nc_ht=scontent.fpnh2-1.fna&_nc_gid=Ab6rxMOZDTZo77Ihsf_LbR-&oh=00_AYDQ-nFt_olsBn1KChmVToR2VmIPjWxDZrYSAlcqjHa4Fg&oe=67759B2B" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://i0.wp.com/kbcambodia.com/wp-content/uploads/2016/12/Zando-Cambodia-1.png?fit=600%2C343&ssl=1" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<article id="New" class="py-5">
+    <div class="box-card container">
+        <h2 class="text-center">New Products</h2>
+        <div class="row" id="newProduct">
+
+        </div>
+    </div>
+</article>
+<article id="Promotion" class="py-5">
+    <div class="box-card container" >
+        <h2 class="text-center">Promotion Products</h2>
+        <div class="row" id="promotionProduct">
+            
+        </div>
+    </div>
+</article> 
+<article id="Popular" class="py-5">
+    <div class="box-card container" >
+        <h2 class="text-center">Popular Products</h2>
+        <div class="row" id="popularProduct">
+
+        </div>
+    </div>
+</article>
+<script type="module">
+import {products} from './data.js'
+$(document).ready(function(){
+    const getNewProduct=()=>{
+        products.reverse();
+        // console.log(products);
+                
+                
+        var  card='';
+        products.forEach((val,index)=>{
+            if(index<4){
+                if(val.regular_price==0){
+                    card+=`
+                        <div class="col-6 col-xl-3 mt-3">
+                            <div class="card" data-id="${val.id}">
+                                <div class="image">
+                                    <img class="w-100" src="${val.image}" alt="">
+                                </div>
+                                <div class="title p-2">
+                                    <span><b>US ${val.sale_price}$</b></span>
+                                    <p>${val.title}</p>
+                                    <div class="icon">
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }else{
+                    card+=`
+                        <div class="col-6 col-xl-3 mt-3">
+                            <div class="card" data-id="${val.id}">
+                                <div class="promotion">
+                                    <span>Promotion</span>
+                                </div>    
+                                <div class="image">
+                                    <img class="w-100" src="${val.image}" alt="">
+                                </div>
+                                <div class="title p-2">
+                                    <del class="text-danger"><b>US ${val.regular_price}$</b></del>
+                                    <span class="ms-3"><b>US ${val.sale_price}$</b></span>
+                                    <p>Loose Fit T-shirts</p>
+                                    <div class="icon">
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        })
+        $('#newProduct').html(card);           
+    }
+    getNewProduct();
+    const promotionProduct=()=>{
+        var card='';
+        var count=1;
+        products.forEach((val)=>{
+            if(count<=4){
+                if(val.regular_price!=0){
+                    count++;
+                    card+=`
+                        <div class="col-6 col-xl-3 mt-3">
+                            <div class="card" data-id="${val.id}">
+                                <div class="promotion">
+                                    <span>Promotion</span>
+                                </div>    
+                                <div class="image">
+                                    <img class="w-100" src="${val.image}" alt="">
+                                </div>
+                                <div class="title p-2">
+                                    <del class="text-danger"><b>US${val.regular_price}$</b></del>
+                                    <span class="ms-3"><b>US${val.sale_price}$</b></span>
+                                    <p>Loose Fit T-shirts</p>
+                                    <div class="icon">
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        })
+        $('#promotionProduct').html(card)
+    }
+    promotionProduct()
+    const popularProduct=()=>{
+        products.sort((a, b) => a.views - b.views);
+        var  card='';
+        products.forEach((val,index)=>{
+            if(index<4){
+                if(val.regular_price==0){
+                    card+=`
+                        <div class="col-6 col-xl-3 mt-3">
+                                <div class="card" data-id="${val.id}">
+                                    <div class="image">
+                                        <img class="w-100" src="${val.image}" alt="">
+                                    </div>
+                                    <div class="title p-2">
+                                        <span><b>US ${val.sale_price}$</b>
+                                        </span>
+                                        <p>${val.title}</p>
+                                        <div class="icon">
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    `;
+                }else{
+                    card+=`
+                        <div class="col-6 col-xl-3 mt-3">
+                            <div class="card" data-id="${val.id}">
+                                <div class="promotion">
+                                    <span>Promotion</span>
+                                </div>    
+                                <div class="image">
+                                    <img class="w-100" src="${val.image}" alt="">
+                                </div>
+                                <div class="title p-2">
+                                    <del class="text-danger"><b>US ${val.regular_price}$</b></del>
+                                    <span class="ms-3"><b>US ${val.sale_price}$</b></span><p>Loose Fit T-shirts</p>
+                                    <div class="icon">
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        })
+        $('#popularProduct').html(card);      
+    }
+    popularProduct();
+})
+</script>

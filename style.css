@@ -1,0 +1,133 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+header{
+    position: sticky;
+    top: 0;
+    z-index: 11111;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.navbar .container .navbar-collapse{
+   margin-left: 150px;
+   & .navbar-nav .nav-link{
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+   }
+}
+.slide .carousel-inner .carousel-item{
+    height: 800px;
+    & img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.box-card{
+    margin-top: 50px;
+    position: relative;
+}
+.box-card h2{
+    position: relative;
+}
+
+.box-card .card .image{
+    overflow: hidden;
+    
+}
+.box-card .card .image img{
+    transition:all ease-in-out 0.3s;
+}
+.box-card .card .image:hover img{
+    transform: scale(1.05);
+    cursor: pointer;
+    
+}
+.box-card .card .promotion{
+    position: absolute;
+    top: 0;
+    border-radius: 5px;
+    z-index: 111;
+    background-color: pink;
+    padding: 5px 5px;
+    display: flex;
+    justify-content: center;
+    & span{
+        /* background-color: red; */
+        width: 100%;
+        height: 100%;
+    }
+}
+footer{
+    background-color: black;
+}
+.footer h5{
+    color: #fff;
+    margin-bottom: 20px;
+}
+.footer .link{
+    width: 100%;
+}
+.footer .link ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    list-style: none;
+}
+.footer .link ul li a{
+    text-decoration: none;
+    color: #ffffffc0;
+}
+
+
+
+/* // X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    
+    .navbar .container .navbar-collapse{
+        margin-left: 10px;
+    } 
+    .slide .carousel-inner .carousel-item{
+        height: 200px;
+    }
+    .box-card{
+        margin-top: 20px;
+    }
+    .app,.accept{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+    
+    .link{
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: start;
+        padding-left: 50px;
+    }
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) { }
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { }
+
+/* // Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) { }
+
+/* // X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) { }
+
+/* // XX-Large devices (larger desktops) */
+/* // No media query since the xxl breakpoint has no upper bound on its width */

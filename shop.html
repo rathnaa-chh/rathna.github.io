@@ -1,0 +1,182 @@
+<style>
+    #New .box-card .row .col-xl-4:nth-child(1) {
+        display: none;
+    }
+
+    h2 {
+        text-transform: uppercase;
+    }
+
+    .category ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .category ul li {
+        width: 90%;
+        padding: 15px 10px;
+    }
+
+    .category ul li:nth-child(2), .category ul li:nth-child(4) {
+        background-color: rgb(239, 201, 8);
+    }
+
+    .category ul li a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .category ul li:nth-child(2) a, .category ul li:nth-child(4) a {
+        color: #5b83c7;
+    }
+
+    .price {
+        display: flex;
+        gap: 15px;
+    }
+
+    @media (max-width: 575.98px) {
+        #New .box-card .row .col-xl-4:nth-child(1) {
+            display: block;
+        }
+
+        .category h2 {
+            text-align: center;
+        }
+
+        .price {
+            display: flex;
+            justify-content: center;
+        }
+
+        #relate {
+            display: none;
+        }
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-xl-8">
+            <article id="New">
+                <div class="box-card" id="newpro">
+                    <h2 class="text-center">New Products</h2>
+                    <div class="row" id="newShop"></div>
+                </div>
+            </article>
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="category py-5">
+                <h2 class="mb-3">CATEGORIES</h2>
+                <ul>
+                    <li><a href="/Zando/Women.html">Woman</a></li>
+                    <li><a href="/Zando/Men.html">Man</a></li>
+                    <li><a href="/Zando/Boy.html">Boy</a></li>
+                    <li><a href="/Zando/Girl.html">Girl</a></li>
+                </ul>
+                <h2>PROMOTIONS</h2>
+                <div class="price ps-3">
+                    <button class="btn btn-outline-danger my-3" id="showPromotionButton">Promotion</button>
+                </div>
+                <h2>PRICE</h2>
+                <div class="price w-100 ps-3">
+                    <button class="btn btn-outline-warning" id="lowPrice">Low Price</button>
+                    <button class="btn btn-outline-warning" id="highPrice">High Price</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <article id="relate" class="py-5">
+        <div class="box-card container">
+            <h2 class="text-center">Related Products</h2>
+            <div class="row" id="relatedProduct"></div>
+        </div>
+    </article>
+</div>
+</body>
+</html>
+<script type="module">
+    import { products } from './data.js';
+
+    $(document).ready(() => {
+        
+        const getNewProduct = (filterPromotion = false) => {
+            let card = '';
+            const filteredProducts = filterPromotion
+                ? products.filter(val => val.sale_price < val.regular_price) 
+                : products.slice(0, 4);
+
+            filteredProducts.forEach((val, index) => {
+                card += `
+                    <div class="col-6 col-xl-4 mt-3">
+                        <div class="card" data-id="${val.id}">
+                            ${val.regular_price > 0 && val.sale_price < val.regular_price ? `<div class="promotion"><span>Promotion</span></div>` : ''}
+                            <div class="image">
+                                <img class="w-100" src="${val.image}" alt="${val.title}">
+                            </div>
+                            <div class="title p-2">
+                                ${val.regular_price > 0 ? `<del class="text-danger"><b>US ${val.regular_price}$</b></del>` : ''}
+                                <span class="ms-3"><b>US ${val.sale_price}$</b></span>
+                                <p>${val.title}</p>
+                                <div class="icon">
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            $('#newShop').html(card);
+        };
+
+        getNewProduct();
+
+      
+        $('#showPromotionButton').on('click', () => {
+            getNewProduct(true); 
+        });
+
+       
+        const relatedProduct = () => {
+            let card = '';
+            let count = 1;
+            products.forEach((val, index) => {
+                if (count <= 4) {
+                    if (index >= 4) {
+                        count++;
+                        card += `
+                            <div class="col-6 col-xl-3 mt-3">
+                                <div class="card" data-id="${val.id}">
+                                    <div class="image">
+                                        <img class="w-100" src="${val.image}" alt="${val.title}">
+                                    </div>
+                                    <div class="title p-2">
+                                        <span><b>US ${val.sale_price}$</b></span>
+                                        <p>${val.title}</p>
+                                        <div class="icon">
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+            });
+            $('#relatedProduct').html(card);
+        };
+
+        relatedProduct();
+    });
+</script>

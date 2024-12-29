@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIU12a9e91u_f9jz0kjgHUVzDAu_KYjn0H0bJns51tGMEwJdYGBogRqngPBD7_1Vie9iw&usqp=CAU">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girl Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+header {
+    width: 100%;
+    height: 70px;
+    background-color: aliceblue;
+}
+.logo img {
+    justify-content: center;
+    margin-left: 850px;
+    margin-top: 15px;
+}
+footer {
+    background-color: black;
+}
+.footer h5 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+.footer .link {
+    width: 100%;
+}
+.footer .link ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    list-style: none;
+}
+.footer .link ul li a {
+    text-decoration: none;
+    color: #ffffffc0;
+}
+
+
+@media (max-width: 575.98px) {
+    .navbar .container .navbar-collapse {
+        margin-left: 10px;
+    } 
+    .slide .carousel-inner .carousel-item {
+        height: 200px;
+    }
+    .box-card {
+        margin-top: 20px;
+    }
+    .app, .accept {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .link {
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: start;
+        padding-left: 50px;
+    }
+}
+</style>
+
+<body>
+<header>
+    <div class="logo">
+        <img width="200px" src="https://zandokh.com/image/catalog/avethemes/zando-logo-small.png" alt="">
+    </div>
+</header>
+
+<section>
+    
+</section>
+
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="productDetailContent">
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid mt-5 p-5">
+    <div class="footer container">
+        <div class="row">
+            <div class="col-12 col-xl-3">
+                <div class="app">
+                    <h5 class="text-start">ZANDO APP</h5>
+                    <img width="100px" src="https://zandokh.com/image/catalog/logo/qr_code_app.png" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-xl-3">
+                <div class="link">
+                    <h5 class="text-start">FOLLOW US</h5>
+                    <ul>
+                        <li><a href=""><i class="bi bi-facebook me-1"></i> FaceBook</a></li>
+                        <li><a href=""><i class="bi bi-instagram me-1"></i> Instagram</a></li>
+                        <li><a href=""><i class="bi bi-tiktok me-1"></i>Tik Tok</a></li>
+                        <li><a href=""><i class="bi bi-youtube me-1"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3">
+                <div class="link">
+                    <h5>CUSTOMER SERVICES</h5>
+                    <ul>
+                        <li><a href=""><i class="bi bi-question-circle me-1"></i>Online exchange policy</a></li>
+                        <li><a href=""><i class="bi bi-shield-shaded me-1"></i>Privacy Policy</a></li>
+                        <li><a href=""><i class="bi bi-whatsapp me-1"></i>FAQs & guides</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3">
+                <div class="accept">
+                    <h5>WE ACCEPT</h5>
+                    <img width="190px" src="https://zandokh.com/image/catalog/logo/web-footer/We-accept-payment%E2%80%93for-web-footer-1.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="module">
+import { products } from './data.js';
+
+$(document).ready(() => {
+    const getGirlProduct = () => {
+        products.reverse(); 
+        let card = '';
+
+        
+        const girlProducts = products.filter(val => val.category === 'Girl');
+        console.log(girlProducts);
+
+        girlProducts.forEach((val, index) => {
+            if (index < 4) { 
+                card += `
+                    <div class="col-3 mt-3"> 
+                        <div class="card" data-id="${val.id}">
+                            <div class="image">
+                                <img class="w-100" src="${val.image}" alt="${val.title}">
+                            </div>
+                            <div class="title p-2">
+                                <span><b>US ${val.sale_price}$</b></span>
+                                <p>${val.title}</p>
+                                <div class="icon">
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+
+       
+        if (card) {
+            $('section').html(`<div class="row">${card}</div>`); 
+        }
+    };
+
+    getGirlProduct();
+
+    $(document).on('click', '.card', function () {
+        const productID = $(this).data('id');
+        let detail = '';
+
+        products.forEach(e => {
+            if (e.id == productID) {
+                detail += `
+                <div class="row mb-5 mt-5">
+                    <div class="col-6 p-0">
+                        <div class="w-100 d-flex justify-content-center">
+                            <img class="w-75" src="${e.image}" alt="${e.title}">
+                        </div>
+                    </div>
+                    <div class="col-6 p-0">
+                        <div class="detail w-100 p-4">
+                            <h1 class="text-dark mb-3">${e.title}</h1>
+                            <div class="price">
+                                <ul>
+                                    <li class="fs-4 mb-3">PRICE</li>
+                                    <ol>
+                                        <del class="text-danger fs-5">${e.regular_price}$ (US)</del>
+                                        <p class="text-success fs-5 mt-3">${e.sale_price}$ (US)</p>
+                                    </ol>
+                                </ul>
+                            </div>
+                            <div class="category">
+                                <ul>
+                                    <li class="fs-4 mb-3">CATEGORY</li>
+                                    <ol>
+                                        <p class="text-secondary fs-5 mt-3">${e.category}</p>
+                                    </ol>
+                                </ul>
+                            </div>
+                            <div class="color">
+                                <ul>
+                                    <li class="fs-4 mb-3">COLOR</li>
+                                    <ol>
+                                        <p class="fs-6 text-secondary">${e.color}</p>
+                                    </ol>
+                                </ul>
+                            </div>
+                            <div class="size">
+                                <ul>
+                                    <li class="fs-4 mb-3">SIZE</li>
+                                    <ol>
+                                        <p class="fs-6 text-secondary">${e.size}</p>
+                                    </ol>
+                                </ul>
+                            </div>
+                            <div class="buy mb-5">
+                                <ul>
+                                    <li class="fs-4 mb-3">BUY</li>
+                                </ul>
+                                <div class="d-flex align-items-center gap-2">
+                                    <input type="number" value="1" class="txtBoxBuy form-control w-25 text-center">
+                                    <button class="text-light btn btn-primary">Add To Cart</button>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <ul>
+                                    <li class="fs-4 mb-3">DESCRIPTION</li>
+                                    <ol>
+                                        <p class="fs-6 text-secondary">${e.description}</p>
+                                    </ol>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            }
+        });
+
+        $('#productDetailContent').html(detail);
+        $('#productModal').modal('show');
+    });
+});
+</script>
+
+</body>
+</html>
